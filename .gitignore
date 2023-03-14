@@ -10,8 +10,8 @@ Cargo.lock
 **/*.rs.bk
 
 # Codegenated package
-pokemon-service-client-sdk
-pokemon-service-server-sdk
+solar-system-catalog-client-sdk
+solar-system-catalog-server-sdk
 model/build
 docs/slides.html
 

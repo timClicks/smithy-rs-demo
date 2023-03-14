@@ -33,14 +33,15 @@ pub async fn get_pokemon_species(
     input: input::GetPokemonSpeciesInput,
     state: Extension<Arc<State>>,
 ) -> Result<output::GetPokemonSpeciesOutput, error::GetPokemonSpeciesError> {
-    // We only support retrieving information about Pikachu.
-    tracing::debug!("Requested Pokémon is {}", &input.name);
+    let name = &input.name;
 
-    let pokemon = state.0.pokemons_translations.get(&input.name);
+    tracing::debug!("Requested Pokémon is {}", name);
+
+    let pokemon = state.0.pokemons_translations.get(name);
     match pokemon {
         Some(pokemon) => {
 
-            tracing::info!("Found Pokémon species {}", input.name);
+            tracing::info!("Found Pokémon species {}", name);
             let output = output::GetPokemonSpeciesOutput {
                 name: input.name,
                 local_description: pokemon.to_vec(),
@@ -48,7 +49,7 @@ pub async fn get_pokemon_species(
             Ok(output)
         }
         None => {
-            tracing::error!("Requested Pokémon {} not available", input.name);
+            tracing::error!("Requested Pokémon {} not available", name);
             Err(error::PokemonNotFound {
                 message: String::from("Requested Pokémon not available"),
             }

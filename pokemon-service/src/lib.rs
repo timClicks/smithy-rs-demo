@@ -38,7 +38,7 @@ pub async fn get_pokemon_species(
     let pokemon = state.0.pokemons_translations.get(&input.name);
     match pokemon {
         Some(pokemon) => {
-            tracing::info!("Found Pokémon specie {}", input.name);
+            tracing::info!("Found Pokémon species {}", input.name);
             let output = output::GetPokemonSpeciesOutput {
                 name: input.name,
                 flavor_text_entries: pokemon.to_vec(),

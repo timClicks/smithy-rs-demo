@@ -6,10 +6,10 @@ use aws_smithy_http_server::AddExtensionLayer;
 use aws_smithy_http_server::instrumentation::InstrumentExt;
 use clap::Parser;
 use futures_util::stream::StreamExt;
-use pokemon_service::{
-    get_pokemon_species, setup_tracing, tls, State,
+use solar_system_catalog::{
+    get_planet, setup_tracing, tls, State,
 };
-use pokemon_service_server_sdk::service::PokemonService;
+use solar_system_catalog_server_sdk::service::SolarSystemCatalog;
 
 
 #[derive(Parser, Debug)]
@@ -37,11 +37,11 @@ pub async fn main() {
     //
     let shared_state = Arc::new(State::default());
     // Setup shared state and middlewares.
-    let app = PokemonService::builder()
+    let app = SolarSystemCatalog::builder()
         // Build a registry containing implementations to all the operations in the service. These
         // are async functions or async closures that take as input the operation's input and
         // return the operation's output.
-        .get_pokemon_species(get_pokemon_species)
+        .get_planet(get_planet)
         .instrument()
         .build()
         .layer(&AddExtensionLayer::new(shared_state));

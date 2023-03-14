@@ -1,18 +1,18 @@
 [package]
-name = "pokemon-service"
+name = "solar-system-catalog"
 version = "0.1.0"
 edition = "2021"
-authors = ["Bigo <bigo@crisidev.org>"]
+authors = ["Tim McNamara <timmcn@amazon.com>", "Bigo <bigo@crisidev.org>"]
 description = "The Pokémon Service allows you to retrieve information about Pokémon species."
-documentation = "https://github.com/crisidev/smithy-rs-pokemon-service/README.md"
+documentation = "https://github.com/timClicks/smithy-rs-demo/README.md"
 readme = "README.md"
-homepage = "https://github.com/crisidev/smithy-rs-pokemon-service"
+homepage = "https://github.com/timClicks/smithy-rs-demo"
 repository = "https://github.com/crisidev/smithy-rs-pokemon-service/"
 license = "MIT"
 
 [dependencies]
 # First-party dependencies.
-pokemon-service-server-sdk = { path = "../pokemon-service-server-sdk/" }
+solar-system-catalog-server-sdk = { path = "../solar-system-catalog-server-sdk/" }
 
 # Third-party dependencies.
 aws-smithy-http-server = { version = "0.51.0" }
@@ -31,7 +31,7 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
 [dev-dependencies]
 # First-party dependencies.
-pokemon-service-client-sdk = { path = "../pokemon-service-client-sdk/" }
+solar-system-catalog-client-sdk = { path = "../solar-system-catalog-client-sdk/" }
 
 # Third-party dependencies.
 aws-smithy-client = { version = "0.51.0", features = ["rustls"] }

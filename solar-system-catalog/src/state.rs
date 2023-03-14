@@ -1,7 +1,7 @@
 //! PokémonService shared state.
 use std::collections::HashMap;
 
-use pokemon_service_server_sdk::model::{FlavorText, Language};
+use solar_system_catalog_server_sdk::model::{Description, Language};
 
 /// Some applications may want to manage state between handlers. Imagine having a database connection pool
 /// that can be shared between different handlers and operation implementations.
@@ -59,49 +59,36 @@ use pokemon_service_server_sdk::model::{FlavorText, Language};
 /// [`middleware`]: [`aws_smithy_http_server::AddExtensionLayer`]
 #[derive(Debug)]
 pub struct State {
-    pub(crate) pokemons_translations: HashMap<String, Vec<FlavorText>>,
+    pub(crate) descriptions: HashMap<String, Vec<Description>>,
 }
 
 impl Default for State {
     fn default() -> Self {
-        let mut pokemons_translations = HashMap::new();
-        pokemons_translations.insert(
-            String::from("pikachu"),
+        let mut descriptions = HashMap::new();
+
+        descriptions.insert(
+            String::from("Earth"),
             vec![
-                FlavorText {
-                    flavor_text: "When several of these Pokémon gather, their electricity could build and cause lightning storms.".to_string(),
+                Description {
+                    content: "Earth is the third planet from the Sun and the only place known in the universe where life has originated and found habitability.".to_string(),
                     language: Language::English,
                 },
-                FlavorText {
-                    flavor_text: "Quando vari Pokémon di questo tipo si radunano, la loro energia può causare forti tempeste.".to_string(),
+                Description {
+                    content: "La Terra è il terzo pianeta in ordine di distanza dal Sole e il più grande dei pianeti terrestri del sistema solare, sia per massa sia per diametro.".to_string(),
                     language: Language::Italian,
                 },
-                FlavorText {
-
-                    flavor_text: "Cuando varios de estos Pokémon se juntan, su energía puede causar fuertes tormentas.".to_string(),
+                Description {
+                    content: "La Tierra (del latín Terra,17​ deidad romana equivalente a Gea, diosa griega de la feminidad y la fecundidad) es un planeta del sistema solar que gira alrededor de su estrella —el Sol— en la tercera órbita más interna. ".to_string(),
                     language: Language::Spanish,
                 },
-                FlavorText {
-                    flavor_text: "ほっぺたの りょうがわに ちいさい でんきぶくろを もつ。ピンチのときに ほうでんする。".to_string(),
+                Description {
+                    content: "地球（ちきゅう、羅: Terra、英: The Earth）は、太陽系の惑星の1つ[5]。太陽から3番目に近いため、太陽系第３惑星と言われる。表面に水、空気中に酸素を大量に蓄え、人類を含む多種多様な生命体が生存することを特徴とする惑星である[6]。".to_string(),
                     language: Language::Japanese,
                 },
             ]
         );
-        pokemons_translations.insert(
-            String::from("raichu"),
-            vec![
-                FlavorText {
-                    flavor_text: "When electricity builds up inside its body, it becomes feisty. It also glows in the dark.".to_string(),
-                    language: Language::English,
-                },
-                FlavorText {
-                    flavor_text: "Quando l'elettricità si accumula all'interno del suo corpo, diventa irascibile. Si illumina anche al buio.".to_string(),
-                    language: Language::Italian,
-                },
-            ],
-        );
         Self {
-            pokemons_translations,
+            descriptions,
         }
     }
 }

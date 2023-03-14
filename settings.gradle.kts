@@ -1,4 +1,4 @@
-rootProject.name = "pokemon-service"
+rootProject.name = "solar-system-catalog"
 
 includeBuild("smithy-rs")
 include(":model")

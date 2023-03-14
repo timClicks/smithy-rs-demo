@@ -1,15 +1,15 @@
 {
     "version": "1.0",
     "projections": {
-        "pokemon-service-server-sdk": {
+        "solar-system-catalog-server-sdk": {
             "imports": [
-                "./pokemon.smithy"
+                "./solarsystem.smithy"
             ],
             "plugins": {
                 "rust-server-codegen": {
-                    "service": "aws.dev#PokemonService",
-                    "module": "pokemon-service-server-sdk",
-                    "moduleDescription": "Rust server SDK for the Pokémon Service",
+                    "service": "mcnamara.nz#SolarSystemCatalog",
+                    "module": "solar-system-catalog-server-sdk",
+                    "moduleDescription": "Rust-based server SDK for the catalog.",
                     "moduleVersion": "0.1.0",
                     "moduleAuthors": [
                         "Tim McNamara <timmcn@amazon.com>",
@@ -21,15 +21,15 @@
                 }
             }
         },
-        "pokemon-service-client-sdk": {
+        "solar-system-catalog-client-sdk": {
             "imports": [
-                "./pokemon.smithy"
+                "./solarsystem.smithy"
             ],
             "plugins": {
                 "rust-codegen": {
-                    "service": "aws.dev#PokemonService",
-                    "module": "pokemon-service-client-sdk",
-                    "moduleDescription": "Rust client SDK for the Pokémon Service",
+                    "service": "mcnamara.nz#SolarSystemCatalog",
+                    "module": "solar-system-catalog-client-sdk",
+                    "moduleDescription": "Rust-based client SDK for the catalog.",
                     "moduleVersion": "0.1.0",
                     "moduleAuthors": [
                         "Tim McNamara <timmcn@amazon.com>",

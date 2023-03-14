@@ -1,4 +1,4 @@
-$version: "1.0"
+$version: "2.0"
 
 namespace aws.dev
 
@@ -28,7 +28,11 @@ structure GetPokemonSpeciesInput {
     /// The name for the Pokémon to search.
     @required
     @httpLabel
-    name: String
+    name: String,
+
+    @httpQuery("lang")
+    @default("en")
+    lang: String
 }
 
 @output

@@ -7,11 +7,12 @@
             ],
             "plugins": {
                 "rust-server-codegen": {
-                    "service": "org.crisidev#PokemonService",
+                    "service": "aws.dev#PokemonService",
                     "module": "pokemon-service-server-sdk",
                     "moduleDescription": "Rust server SDK for the Pokémon Service",
                     "moduleVersion": "0.1.0",
                     "moduleAuthors": [
+                        "Tim McNamara <timmcn@amazon.com>",
                         "Bigo <bigo@crisidev.org>"
                     ],
                     "runtimeConfig": {
@@ -26,11 +27,12 @@
             ],
             "plugins": {
                 "rust-codegen": {
-                    "service": "org.crisidev#PokemonService",
+                    "service": "aws.dev#PokemonService",
                     "module": "pokemon-service-client-sdk",
                     "moduleDescription": "Rust client SDK for the Pokémon Service",
                     "moduleVersion": "0.1.0",
                     "moduleAuthors": [
+                        "Tim McNamara <timmcn@amazon.com>",
                         "Bigo <bigo@crisidev.org>"
                     ],
                     "runtimeConfig": {

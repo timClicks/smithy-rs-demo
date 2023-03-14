@@ -1,6 +1,6 @@
 $version: "1.0"
 
-namespace org.crisidev
+namespace aws.dev
 
 use aws.protocols#restJson1
 
@@ -16,7 +16,7 @@ service PokemonService {
 
 /// Retrieve information about a Pokémon species.
 @readonly
-@http(uri: "/pokemon-species/{name}", method: "GET")
+@http(uri: "/pokemon/{name}", method: "GET")
 operation GetPokemonSpecies {
     input: GetPokemonSpeciesInput,
     output: GetPokemonSpeciesOutput,
